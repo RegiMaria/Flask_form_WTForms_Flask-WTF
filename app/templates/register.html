@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        form {
+            width: 50%;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            /* Ajusta a largura dos inputs */
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 10px;
+            /* Define a largura do botão */
+            margin: 0;
+            /* Centraliza o botão horizontalmente */
+            display: inline-block;
+            /* Faz o botão ocupar uma linha inteira */
+        }
+    </style>
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <h2 style="text-align: center">Formulário de cadastro</h2>
+    <form method="POST" action="/register">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        <div>
+            {{ form.username.label }} {{ form.username(size=20) }}
+        </div>
+        <div>
+            {{ form.email.label }} {{ form.email(size=20) }}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+</body>
+
+</html>
